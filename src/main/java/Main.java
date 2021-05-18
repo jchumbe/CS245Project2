@@ -7,6 +7,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.*;
 
 public class Main {
 
@@ -36,7 +37,10 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println(graph.kevinBacon("Jim Carrey","Liam Neeson"));
+        List<String> path = graph.kevinBacon("Sam Worthington","Michelle Rodriguez");
+        System.out.println(Arrays.toString(path.toArray()));
+        System.out.println(graph.getMovies());
+//        System.out.println(graph.kevinBacon("Sam Worthington","Michelle Rodriguez"));
         // read in file
         // read in credits file for line in movie
         // for object in file for movies

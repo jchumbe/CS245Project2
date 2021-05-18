@@ -8,6 +8,13 @@ public class Graph {
     // map of actors to movies they have been in
     private Map<String, Set<Long>> actors;
 
+    public Map<Long, Set<String>> getMovies() {
+        return this.movies;
+    }
+
+    public Map<String, Set<Long>> getActors() {
+        return this.actors;
+    }
     public Graph() {
         movies = new HashMap<Long, Set<String>>();
         actors = new HashMap<String, Set<Long>>();
