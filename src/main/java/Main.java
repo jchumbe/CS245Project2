@@ -17,23 +17,26 @@ public class Main {
             CSVReader csvReader = new CSVReader(fileReader)) {
             String[] line;
             csvReader.readNext();
+            int count = 0;
 
-            while ((line = csvReader.readNext()) != null) {
+            while ((line = csvReader.readNext()) != null && count < 64) {
 
                 JSONParser pars = new JSONParser();
                 Object JObj = pars.parse(line[2]);
                 JSONArray jArray = (JSONArray) JObj;
                 Object movID = pars.parse(line[0]);
                 for (int x = 0; x < jArray.size(); x++) {
-                    System.out.println(((JSONObject)jArray.get(x)).get("name"));
                     graph.add((String) ((JSONObject)jArray.get(x)).get("name"), (Long) movID);
                 }
+                count++;
             }
             csvReader.close();
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+
+        System.out.println(graph.kevinBacon("Jim Carrey","Liam Neeson"));
         // read in file
         // read in credits file for line in movie
         // for object in file for movies
